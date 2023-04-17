@@ -62,7 +62,7 @@
 
 .home__social-link{
     color: var(--title-color);
-    font-size: var(--h5-font-size);
+    font-size: var(--h4-font-size);
     transition: all 0.7s var(--transition);
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {services} from '../../Data';
+// import {services} from '../../Data';
 import {FaArrowRight} from 'react-icons/fa';
 import shapeTwo from "../../assets/shape-2.png";
 import shapeOne from "../../assets/shape-2.png";
@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import './services.css'
 
-const Services = () => {
+const Services = ({services}) => {
   return (
     <section className="services section" id="services">
         <h2 className="section__title text-cs">Things I do</h2>
@@ -48,7 +48,7 @@ const Services = () => {
                         <p className="services__description">{description}</p>
 
                         <a href="" className="link">
-                            See Pricing
+                            Know More
                             <FaArrowRight className='link__icon'></FaArrowRight>
                         </a>
                         <img src={shapeTwo} alt="" className="shape c__shape" />

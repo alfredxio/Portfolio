@@ -9,6 +9,8 @@ import Skills from './components/skills/Skills';
 import Resume from './components/resume/Resume';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
+import axios from 'axios';
+
 
 function App() {
 
@@ -16,8 +18,8 @@ function App() {
   const [isCursorLarge, setIsCursorLarge] = useState(false);
 
   useEffect(() => {
-    const links = document.querySelectorAll("nav ul li a");
-    console.log(links);
+    const links = document.querySelectorAll("a, .btn, .resume__icon, button, .home__social-link");
+    // console.log(links);
     document.addEventListener("mousemove", (e) => {
       setCursorPosition({ x: e.clientX, y: e.clientY });
     });
@@ -34,32 +36,46 @@ function App() {
 
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
+  const [loading3, setLoading3] = useState(false);
+
   useEffect(() => {
-    setLoading(true);
-    setLoading2(true);
+    setLoading(false);
+    setLoading2(false);
     setTimeout(() => {
-      setLoading(false);
+      setLoading(true);
     }, 2500);
     setTimeout(() => {
-      setLoading2(false);
+      setLoading2(true);
     }, 4000);
   }, []);
 
 
-  
+
+  const [datax, setData] = useState({});
+
+  useEffect(() => {
+    setLoading3(false);
+    axios.get('https://script.google.com/macros/s/AKfycbzJV9TWQV8K4E5puzw2sxA2GJM1KgdixyuCBzRqDBQcNenEPqSm5eSNFTJhH5Jdbhb2/exec')
+    .then((response) => {
+        setLoading3(true);
+        setData(response.data);
+        console.log(response.data);
+    })
+  }, []);
+
 
   return (
       <main className="main">
-        {loading2 ? (
-            <div className={`loader-container ${loading?'':'fade-out'}`}>
+        {loading2&&loading3 ? null: (
+            <div className={`loader-container ${loading&&loading3?'fade-out':''}`}>
                 <div className="spinner"></div>
             </div>
-        ):null}
+        )}
           <Header />
           <Home />
-          <Services />
+          {datax.services && <Services services={datax.services} />}
           <Skills />
-          <Portfolio />
+          {datax.projects && <Portfolio projects={datax.projects} />}
           <Resume />
           <Contact />
           <Footer />

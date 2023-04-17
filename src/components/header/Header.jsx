@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './header.css';
 import logoimg from '../../assets/logo.png';
 import {links} from '../../Data';
-import {FaTwitter, FaDribbble, FaBehance, FaInstagram} from 'react-icons/fa';
+import {FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa';
 import {BsSun, BsMoon} from 'react-icons/bs';
 import './header.css';
 import {Link} from 'react-scroll';
@@ -64,17 +64,19 @@ const Header = () => {
               })}
             </ul>
             <div className="header__socials">
-              <a href="" className="header__social-link">
+          
+              <a href="https://www.linkedin.com/in/rohitraj45/" className="header__social-link">
+                <FaLinkedin />
+              </a>
+
+              <a href="https://github.com/alfredxio" className="header__social-link">
+                <FaGithub />
+              </a>
+
+              <a href="https://instagram.com/x.alfred.io" className="header__social-link">
                 <FaInstagram />
               </a>
 
-              <a href="" className="header__social-link">
-                <FaDribbble />
-              </a>
-
-              <a href="" className="header__social-link">
-                <FaBehance />
-              </a>
             </div>
           </div>
 

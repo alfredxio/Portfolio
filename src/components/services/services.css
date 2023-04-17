@@ -11,7 +11,7 @@
 }
 
 .services__subtitle{
-    color: var(--title-color);
+    color: var(--primary-color);
     font-size: var(--tiny-font-size);
     font-weight: 700;
     margin-bottom: 65px;
@@ -25,6 +25,12 @@
     
 .services__description {
     min-height: 175px;
+}
+
+.services__item{
+    height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .swiper-pagination .swiper-pagination-bullets{
@@ -67,4 +73,8 @@
     width: 13px;
     height: 13px;
     top: 2px;
+}
+
+.link{
+    margin-top: auto;
 }

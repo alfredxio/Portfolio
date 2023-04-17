@@ -2,7 +2,7 @@ import React from 'react';
 import profileImg from '../../assets/profile-img3.png';
 import shapeOne from '../../assets/shape-1.png';
 import shapeTwo from '../../assets/shape-2.png';
-import {FaTwitter, FaDribbble, FaBehance, FaInstagram} from 'react-icons/fa';
+import {FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa';
 import Typewriter from 'typewriter-effect';
 import './home.css';
 
@@ -14,7 +14,7 @@ const Home = () => {
       <div className="home__wrapper">
       <div className="home__container container">
         <p className="home__subtitle text-cs">
-          Hello, <span>My Name is</span>
+          Hello World! <span>My Name is</span>
         </p>
 
         <h1 className="home__title text-cs"><span>Rohit</span> Raj</h1>
@@ -34,7 +34,7 @@ const Home = () => {
 
           <p className="home__data home__data-one">
             <span className="text-lg">
-              5 <b>+</b>
+              6 <b>+</b>
             </span>
             <span className="text-sm text-cs">
               Years of <span>Experience</span>
@@ -43,7 +43,7 @@ const Home = () => {
 
           <p className="home__data home__data-two">
             <span className="text-lg">
-              330
+              4
             </span>
             <span className="text-sm text-cs">
               Completed <span>Projects</span>
@@ -57,26 +57,29 @@ const Home = () => {
         </div>
 
         <p className="home__text">
-          From Dhanbad, India. I have rich experience in Full Stack Development, also I am good at Design. I would love to talk with you.
+          From India, I'm an experienced Full Stack Developer with a passion for Design. Currently pursuing a B.Tech in CSE, I love to explore and create, always eager to discuss new ideas.
         </p>
 
+
         <div className="home__socials">
-          <a href="" className="home__social-link">
+          
+          <a href="https://www.linkedin.com/in/rohitraj45/" className="home__social-link">
+            <FaLinkedin />
+          </a>
+
+          <a href="https://github.com/alfredxio" className="home__social-link">
+            <FaGithub />
+          </a>
+
+          <a href="https://instagram.com/x.alfred.io" className="home__social-link">
             <FaInstagram />
           </a>
 
-          <a href="" className="home__social-link">
-            <FaDribbble />
-          </a>
-
-          <a href="" className="home__social-link">
-            <FaBehance />
-          </a>
         </div>
 
         <div className="home__btns">
-          <a href="" className="btn text-cs"><span className="btntxt">Download CV</span></a>
-          <a href="" className="hero__link text-cs">My Skills</a>
+          <a href="https://drive.google.com/uc?id=1iEeSlc9Bm7fepr3lTL3DNF6DgMhUF5Hm" download className="btn text-cs"><span className="btntxt">Download CV</span></a>
+          <a href="#skills" className="hero__link text-cs">My Skills</a>
         </div>
       </div>
 

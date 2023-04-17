@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import List from './List';
 import Items from './Items';
-import {projects} from '../../Data';
+// import {projects} from '../../Data';
 import './portfolio.css';
 import { AnimatePresence } from 'framer-motion';
 import shapeOne from "../../assets/shape-2.png";
 
-const allNavList = ['all',...new Set(projects.map((projects)=>projects.category))];
 
-const Portfolio = () => {
-
+const Portfolio = ({projects}) => {
+  const allNavList = ['all',...new Set(projects.map((projects)=>projects.category))];
   const [projectItems, setMenuItems]=useState(projects);
   const [navList, setCategories]=useState(allNavList);
   

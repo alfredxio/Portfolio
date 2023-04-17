@@ -91,7 +91,8 @@ html{
 }
 
 .cursor.large {
-  transform: scale(1.5);
+  transform: scale(1.5) translate(-33%, -33%);
+  transform-origin: center center!important;
 }
 
 .main{
@@ -140,10 +141,10 @@ button{
   outline: none;
   background: transparent;
 }
-
+/* 
 button{
   cursor: pointer;
-}
+} */
 
 img{
   max-width: 100%;
