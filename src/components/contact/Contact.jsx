@@ -2,10 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import {FaRegAddressBook, FaRegEnvelope, FaRegUser, FaRegMap} from 'react-icons/fa';
 import './contact.css';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import shapeOne from "../../assets/shape-2.png";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Contact = () => {
+    useEffect(()=>{
+        AOS.init({duration:1000});
+    },[]);
 
     const [form, setForm]=useState({
         name:'',
@@ -39,13 +44,13 @@ const Contact = () => {
 
   return (
     <section className="contact section" id="contact">
-        <h2 className="section__title text-cs">Contact Me</h2>
-        <p className="section__subtitle">
+        <h2 className="section__title text-cs" data-aos="fade-down">Contact Me</h2>
+        <p className="section__subtitle" data-aos="fade-down">
             Let's <span>Talk About Ideas</span>
         </p>
 
         <div className="contact__container container grid">
-            <div className="contact__content">
+            <div className="contact__content" data-aos="fade-right">
                 <div className="contact__card">
                     <span className="contact__card-icon">
                         <FaRegMap />
@@ -80,7 +85,7 @@ const Contact = () => {
                 </div>
             </div>
 
-            <form className="contact__form" onSubmit={handleSubmit}>
+            <form className="contact__form" onSubmit={handleSubmit} data-aos="fade-left">
                 <div className='contact__form-group grid'>
                     <div className="contact__form-div">
                         <label className="contact__form-tag text-cs">Your Full Name <b>*</b></label>

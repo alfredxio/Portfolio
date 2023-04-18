@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './header.css';
 import logoimg from '../../assets/logo.png';
+import logoimg2 from '../../assets/withoutbg.gif';
 import {links} from '../../Data';
 import {FaLinkedin, FaGithub, FaInstagram, FaCoffee} from 'react-icons/fa';
 import './header.css';
@@ -8,7 +9,9 @@ import {Link} from 'react-scroll';
 import { animateScroll } from 'react-scroll';
 import shapeOne from "../../assets/shape-2.png";
 
+
 const Header = () => {
+  
   const [showMenu, setShowMenu]=useState(false);
   const [scrollNav, setScrollNav]=useState(false);
   const scrollTop=()=>{
@@ -32,13 +35,25 @@ const Header = () => {
     document.body.classList.toggle('no-scroll',showMenu);
   },[showMenu]);
 
+
+  const [logoImg, setLogoImg] = useState(logoimg);
+
+  const handleMouseEnter = () => {
+    setLogoImg(logoimg2);
+  };
+
+  const handleMouseLeave = () => {
+    setLogoImg(logoimg);
+  };
+
   return (
     <header className={`${scrollNav?'scroll-header':''} header`}>
       <nav className="nav">
-        <img src={logoimg} className="logoimg"/>
-        <Link to='/' onClick={scrollTop} className="nav__logo text-cs">
+        <img src={logoImg} className="logoimg" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}/>
+        <Link to='/' onClick={scrollTop} className="nav__logo text-cs" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
           AlfredX
         </Link>
+        
 
         <div className={`${showMenu?'nav__menu show-menu':'nav__menu'}`}>
           <div className="nav__data">

@@ -88,12 +88,28 @@ html{
   transform: translate(-50%, -50%);
   pointer-events: none;
   transition: transform 1.5s ease;
+  animation: breathe 3s ease-in-out infinite;
 }
 
 .cursor.large {
   transform: scale(1.5) translate(-33%, -33%);
   transform-origin: center center!important;
 }
+
+@keyframes breathe {
+	0% {
+		transform: scale(1) translate(-50%, -50%);
+	}
+	50% {
+		transform: scale(1.2) translate(-40%, -40%);
+	}
+	100% {
+		transform: scale(1) translate(-50%, -50%);
+	}
+}
+
+
+
 
 .main{
   overflow: hidden;
@@ -353,7 +369,7 @@ img{
   width: 100%;
   height: 100vh;
   position: fixed;
-  background: rgba(0, 0, 0, 1)
+  background: #030303
       url('assets/Comp 1.gif') center
       no-repeat;
   background-size: 100px 100px;

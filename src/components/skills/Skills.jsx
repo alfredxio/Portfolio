@@ -1,8 +1,9 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 // import {skills} from '../../Data';
 import './skills.css';
 import shapeOne from "../../assets/shape-2.png";
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import pic1 from "../../assets/1.png";
 import pic2 from "../../assets/2.png";
 import pic3 from "../../assets/3.png";
@@ -30,14 +31,17 @@ import pic21 from "../../assets/21.png";
 const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10, pic11, pic12, pic13, pic14, pic15, pic16, pic17, pic18, pic19, pic20, pic21];
 
 const Skills = ({skills}) => {
+    useEffect(()=>{
+        AOS.init({duration:1500});
+    },[]);
   return (
     <section className="skills section" id="skills">
-        <h2 className="section__title text-cs">Professional Skills</h2>
-        <p className="section__subtitle">
+        <h2 className="section__title text-cs" data-aos="fade-down">Professional Skills</h2>
+        <p className="section__subtitle" data-aos="fade-down">
             My <span>Talents</span>
         </p>
 
-        <div className="skills__container container grid">
+        <div className="skills__container container grid" data-aos="zoom-in-up">
             {skills.map(({name,percentage,description},index)=>{
                 return(
                     <div className="skills__item" key={index}>
@@ -58,7 +62,7 @@ const Skills = ({skills}) => {
         </div>
 
         
-        <div className="skills_icons">
+        <div className="skills_icons" data-aos="fade-up">
                 
                 {images.map((image, index) => (
                     <img key={index} src={image} alt={`Image ${index + 1}`} />

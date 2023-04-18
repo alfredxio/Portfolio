@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 // import {services} from '../../Data';
 import {FaArrowRight} from 'react-icons/fa';
 import shapeTwo from "../../assets/shape-2.png";
@@ -10,12 +10,18 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import './services.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 
 const Services = ({services}) => {
+    useEffect(()=>{
+        AOS.init({duration:1500});
+    },[]);
   return (
     <section className="services section" id="services">
-        <h2 className="section__title text-cs">Things I do</h2>
-        <p className="section__subtitle">
+        <h2 className="section__title text-cs" data-aos="fade-down">Things I do</h2>
+        <p className="section__subtitle" data-aos="fade-down">
             My <span>Services</span>
         </p>
 
@@ -39,7 +45,7 @@ const Services = ({services}) => {
             },
             }}
             modules={[Pagination]}
-            className="mySwiper services__container container">
+            className="mySwiper services__container container"  data-aos="fade-right">
             {services.map(({name,title,description},index)=>{
                 return(
                     <SwiperSlide className="services__item card card-one" key={index}>

@@ -260,6 +260,10 @@
         align-items: flex-start;
         row-gap: 4px;
     }
+    
+    .cursor{
+        visibility: hidden;
+    }
 }
 
 @media screen and (max-width: 350px){   
@@ -310,4 +314,6 @@
     .resume__content{
         padding-inline: 18px 20px;
     }
+
+
 }

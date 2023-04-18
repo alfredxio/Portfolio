@@ -10,7 +10,7 @@ import Resume from './components/resume/Resume';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import axios from 'axios';
-import { services,skills,projects } from './Data';
+// import { services,skills,projects } from './Data';
 
 
 function App() {
@@ -73,20 +73,16 @@ function App() {
                   <div className="spinner"></div>
               </div>
           )}
-
           <Header />
           <Home />
           {datax.services && <Services services={datax.services.filter(service => service.id !== "")} />}
           {datax.skills && <Skills skills={datax.skills.filter(skill=>skill.id!=="")}/>}
           {datax.projects && <Portfolio projects={datax.projects.filter(project => project.id !== "")} />}
           {datax.cv && <Resume cv={datax.cv.filter(cvx => cvx.id !== "")} />}
-
-          {/* {services && <Services services={services.filter(service => service.id !== "")} />}
-          {skills && <Skills skills={skills.filter(skill=>skill.id!=="")}/>}
-          {projects && <Portfolio projects={projects.filter(project => project.id !== "")} />} */}
           <Contact />
           <Footer />
           <div className={`cursor ${isCursorLarge ? "large" : ""}`} style={{ left: cursorPosition.x, top: cursorPosition.y }}></div>
+          
       </main>
   )
 }

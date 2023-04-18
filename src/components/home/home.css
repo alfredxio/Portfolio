@@ -129,11 +129,15 @@
 .home__data-one{
     bottom: 20%;
     left:-4%;
+    transform: translatey(0px);
+	animation: float 6s ease-in-out infinite;
 }
 
 .home__data-two{
     bottom: 12%;
     right:6%;
+    transform: translatey(0px);
+	animation: float2 5s ease-in-out infinite;
 }
 
 .home__data .text-lg,
@@ -184,4 +188,29 @@
 .shape__3{
     bottom: 0;
     right: -2%;
+}
+
+
+@keyframes float {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-15px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+}
+
+@keyframes float2 {
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(10px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
 }

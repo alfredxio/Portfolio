@@ -34,7 +34,10 @@
     height: 40px;
     position: absolute;
     vertical-align: middle;
+    color:var(--primary-color);
+    z-index: 1;
 }
+
 
 .nav__menu{
     position: fixed;
@@ -109,7 +112,7 @@
 }
 
 .theme__toggler{
-    font-size: var(--h4-font-size);
+    font-size: var(--h3-font-size);
     display: flex;
     align-items: center;
     transition: all 0.3s var(--transition);
@@ -159,3 +162,4 @@
     left:-168px;
     z-index: -1;
 }
+
