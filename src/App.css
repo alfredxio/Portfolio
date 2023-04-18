@@ -216,6 +216,10 @@ img{
   z-index: 0;
 }
 
+.invalidform::before{
+  background-color: rgb(135, 34, 34)!important;
+}
+
 .btn:hover::before {
   transform: scale(1);
   filter: blur(0);

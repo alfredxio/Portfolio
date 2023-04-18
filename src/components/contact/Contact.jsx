@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {FaRegAddressBook, FaRegEnvelope, FaRegUser, FaRegMap} from 'react-icons/fa';
+import {FaRegAddressBook, FaRegEnvelope, FaRegUser, FaRegMap, FaSadCry} from 'react-icons/fa';
 import './contact.css';
 import { useState,useEffect } from 'react';
 import shapeOne from "../../assets/shape-2.png";
@@ -19,7 +19,11 @@ const Contact = () => {
         message:'',
     });
 
+    const [noSubmit, noSubmitHandler]=useState(false);
+    
+
     const handleChange =(e) =>{
+        noSubmitHandler(false);
         const name = e.target.name;
         const value =e.target.value;
         setForm({...form,[name]:value});
@@ -27,16 +31,42 @@ const Contact = () => {
 
     const handleSubmit=(e)=>{
         e.preventDefault();
+        if (!form.name || !form.email || !form.message) {
+            noSubmitHandler(true);
+            return;
+        }
+        else{
+            noSubmitHandler(false);
+        }
+
         axios.post(
             'https://sheet.best/api/sheets/123d089f-1209-4846-84f7-971740c002ac',
             form
         ).then((response)=>{
-            // console.log(response);
+            // // console.log(response);
+            // setForm({
+            //     name:'',
+            //     email:'',
+            //     subject:'',
+            //     message:''})
+        });
+
+        const formData = new FormData(e.target);
+        axios.post('http://44.201.15.35:3082/submit-form', {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            subject: formData.get('subject'),
+            message: formData.get('message'),
+        })
+        .then(response => {
             setForm({
                 name:'',
                 email:'',
                 subject:'',
                 message:''})
+        })
+        .catch(error => {
+            console.error(error);
         });
     }
 
@@ -133,7 +163,7 @@ const Contact = () => {
 
                 <div className="contact__submit">
                     <p>* Accept the terms and conditions.</p>
-                    <button className="btn text-cs">
+                    <button className={`btn text-cs ${noSubmit?'invalidform':''}`}>
                     <span className="btntxt">Send Message</span>
                     </button>
                 </div>
