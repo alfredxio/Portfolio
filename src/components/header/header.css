@@ -79,6 +79,10 @@
     color:var(--primary-color);
 }
 
+.theme__toggler:hover{
+    color:var(--primary-color);
+}
+
 .header__socials{
     display: flex;
     column-gap: 20px;
@@ -100,11 +104,15 @@
     align-items: center;
     column-gap: 40px;
 }
+.ahref{
+    color: inherit;
+}
 
 .theme__toggler{
     font-size: var(--h4-font-size);
     display: flex;
     align-items: center;
+    transition: all 0.3s var(--transition);
 }
 
 .nav__toggle{

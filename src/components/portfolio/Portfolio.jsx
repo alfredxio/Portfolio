@@ -6,7 +6,6 @@ import './portfolio.css';
 import { AnimatePresence } from 'framer-motion';
 import shapeOne from "../../assets/shape-2.png";
 
-
 const Portfolio = ({projects}) => {
   const allNavList = ['all',...new Set(projects.map((projects)=>projects.category))];
   const [projectItems, setMenuItems]=useState(projects);

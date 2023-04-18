@@ -12,8 +12,8 @@
     padding-bottom: 30px;
 }
 
-.resume__heading,
-.resume__item{
+.resume_border{
+    border-top: 2px solid var(--border-color);
     border-bottom: 2px solid var(--border-color);
 }
 
@@ -72,6 +72,7 @@
 .resume__title{
     font-family: var(--second-font);
     font-size: var(--h3-font-size);
+    color: var(--primary-color);
 }
 
 .resume__date{
@@ -81,5 +82,5 @@
 }
 
 .resume__description{
-    margin-block: 20px 30px;
+    margin-block: 8px 18px;
 }

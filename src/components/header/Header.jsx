@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './header.css';
 import logoimg from '../../assets/logo.png';
 import {links} from '../../Data';
-import {FaLinkedin, FaGithub, FaInstagram} from 'react-icons/fa';
-import {BsSun, BsMoon} from 'react-icons/bs';
+import {FaLinkedin, FaGithub, FaInstagram, FaCoffee} from 'react-icons/fa';
 import './header.css';
 import {Link} from 'react-scroll';
 import { animateScroll } from 'react-scroll';
@@ -87,7 +86,7 @@ const Header = () => {
         </div>
         <div className="nav__btns">
           <div className="theme__toggler">
-              <BsSun/>
+          <a href='https://www.buymeacoffee.com/alfredx' className="ahref"><FaCoffee/></a>
           </div>
           <div className={`${showMenu?'nav__toggle animate-toggle':'nav__toggle'}`} onClick={()=>setShowMenu(!showMenu)}>
               <span></span>

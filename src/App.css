@@ -276,6 +276,7 @@ img{
   transition: all 0.3s var(--transition);
 }
 
+
 .link:hover .link__icon{
   margin-left: 15px;
 }
@@ -285,7 +286,7 @@ img{
   bottom: -24px;
   width: 141px;
   height: 141px;
-  opacity: 0.8;
+  opacity: 0.5;
 }
 
 .section__deco{
