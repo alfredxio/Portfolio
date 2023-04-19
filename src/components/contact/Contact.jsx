@@ -52,7 +52,7 @@ const Contact = () => {
         });
 
         const formData = new FormData(e.target);
-        axios.post('http://44.201.15.35:3082/submit-form', {
+        axios.post('https://portfoliobackend-production-ff53.up.railway.app/submit-form', {
             name: formData.get('name'),
             email: formData.get('email'),
             subject: formData.get('subject'),

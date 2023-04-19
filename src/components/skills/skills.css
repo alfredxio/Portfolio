@@ -37,11 +37,14 @@
 
 .skills__bar,
 .skills__percentage{
-    height: 2px;
+    height: 8px;
+    border-radius: 10px;
 }
 
 .skills__bar{
     background: rgba(255, 255, 255, 0.2);
+    width: 90%;
+    margin: auto;
 }
 
 .skills__percentage{
@@ -50,7 +53,7 @@
     position: relative;
 }
 
-.skills__percentage span{
+/* .skills__percentage span{
     background-color: var(--container-color);
     border: 2px solid var(--border-color);
     box-shadow: var(--shadow);
@@ -60,7 +63,7 @@
     position: absolute;
     right: 0;
     top: -12px;
-}
+} */
 
 .skills_icons{
     margin-top: 50px;
