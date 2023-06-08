@@ -39,7 +39,7 @@ const Chatbot = () => {
     setMessages(newMessages);
     setIsTyping(true);
 
-    const apiURL = "http://127.0.0.1:5000/api/chatbot";
+    const apiURL = "https://stingray-app-pgyoo.ondigitalocean.app/api/chatbot";
 
     await axios
       .post(apiURL, {
