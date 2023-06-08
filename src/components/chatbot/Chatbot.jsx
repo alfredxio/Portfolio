@@ -9,6 +9,7 @@ import {
   Message,
   MessageInput,
   TypingIndicator,
+  Avatar
 } from "@chatscope/chat-ui-kit-react";
 import axios from "axios";
 import {BsWechat} from 'react-icons/bs';
@@ -19,7 +20,7 @@ const Chatbot = () => {
 
   const [messages, setMessages] = useState([
     {
-      message: "Hello, I'm AI Version of Rohit Raj! Ask me anything!",
+      message: "Hello, I'm AI Version of Rohit Raj (Currently in Beta)! Ask me anything!",
       sentTime: "just now",
       sender: "ChatGPT",
     },
@@ -28,7 +29,7 @@ const Chatbot = () => {
   const [isTyping, setIsTyping] = useState(false);
 
   const handleSend = async (message) => {
-    console.log("message: " + message);
+    // console.log("message: " + message);
     const newMessage = {
       message,
       direction: "outgoing",
@@ -46,7 +47,7 @@ const Chatbot = () => {
         history: chat_history,
       })
       .then((response) => {
-        console.log("meaw" + response.data);
+        // console.log("meaw" + response.data);
         setMessages([
           ...newMessages,
           {
@@ -55,7 +56,7 @@ const Chatbot = () => {
           },
         ]);
         chat_history.push([message, response.data.response]);
-        console.log("hi" + chat_history);
+        // console.log("hi" + chat_history);
         setIsTyping(false);
       });
   };
@@ -75,6 +76,8 @@ const Chatbot = () => {
 
   const [isVisible, setIsVisible] = useState(false);
 
+  var x='500px';
+
 
   return (
     <div className="botx">
@@ -88,17 +91,33 @@ const Chatbot = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <ChatContainer>
+        <ChatContainer style={{
+          height: `${isVisible?'500px':'0'}`,
+          transition: 'height 1s ease-in-out',
+        }}>
           <MessageList
             scrollBehavior="smooth"
             typingIndicator={
               isTyping ? (
-                <TypingIndicator content="Virtual Rohit is typing" />
+                <TypingIndicator content="Virtual Rohit is typing"/>
               ) : null
             }
           >
             {messages.map((message, i) => {
-              return <Message key={i} model={message} />;
+              return (
+                <>
+                  {message.message==='contact'&&
+
+                  <a href="#contact" className="diva">
+                    <Message key={i} model={message}>
+                      {message.sender==='ChatGPT'&&<Avatar src={img} name="Rohit" style={{width: '5px', height:'10px'}}/>} 
+                    </Message>
+                  </a>
+                  }
+                    <Message key={i} model={message}>
+                      {message.sender==='ChatGPT'&&<Avatar src={img} name="Rohit" style={{width: '5px', height:'10px'}}/>} 
+                    </Message>
+              </>)
             })}
           </MessageList>
           <MessageInput placeholder="Type message here" onSend={handleSend} />
