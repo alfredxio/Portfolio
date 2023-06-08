@@ -39,7 +39,7 @@ const Chatbot = () => {
     setMessages(newMessages);
     setIsTyping(true);
 
-    const apiURL = "https://stingray-app-pgyoo.ondigitalocean.app/api/chatbot";
+    const apiURL = "https://starfish-app-uofxe.ondigitalocean.app/api/chatbot";
 
     await axios
       .post(apiURL, {
@@ -106,8 +106,7 @@ const Chatbot = () => {
             {messages.map((message, i) => {
               return (
                 <>
-                  {message.message==='contact'&&
-
+                  {message.message.toLowerCase().includes('contact me')&&
                   <a href="#contact" className="diva">
                     <Message key={i} model={message}>
                       {message.sender==='ChatGPT'&&<Avatar src={img} name="Rohit" style={{width: '5px', height:'10px'}}/>} 
