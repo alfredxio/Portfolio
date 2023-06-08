@@ -12,12 +12,12 @@ const Resume = ({cv}) => {
 
   return (
     <section className="resume section" id="resume">
-        <h2 className="section__title text-cs" data-aos="fade-down">Resume</h2>
-        <p className="section__subtitle" data-aos="fade-down">
+        <h2 className="section__title text-cs">Resume</h2>
+        <p className="section__subtitle">
             My <span>Story</span>
         </p>
 
-        <div className="resume__container container grid" data-aos="flip-up" data-aos-duration="500">
+        <div className="resume__container container grid" >
             <div className="resume__group">
                 {/* <h3 className="resume__heading">Education</h3> */}
 

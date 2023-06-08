@@ -10,13 +10,15 @@ import Resume from './components/resume/Resume';
 import Contact from './components/contact/Contact';
 import Footer from './components/footer/Footer';
 import axios from 'axios';
-// import { services,skills,projects } from './Data';
+import Chatbot from './components/chatbot/Chatbot';
+import { services,skills,projects } from './Data';
 
 
 function App() {
 
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0});
   const [isCursorLarge, setIsCursorLarge] = useState(false);
+  const [visible, setVisible] = useState(true);
 
   useEffect(() => {
     const links = document.querySelectorAll("a, .btn, .resume__icon, button, .home__social-link");
@@ -33,6 +35,17 @@ function App() {
         setIsCursorLarge(false);
       });
     });
+
+    const handleMouseLeave = () => {
+      setVisible(false);
+    };
+    const handleMouseEnter = () => {
+      setVisible(true);
+    };
+    
+    document.addEventListener('mouseleave', handleMouseLeave);
+    document.addEventListener('mouseenter', handleMouseEnter);
+
   }, []);
 
   const [loading, setLoading] = useState(false);
@@ -64,7 +77,7 @@ function App() {
     })
   }, []);
 
-
+  
   return (
       <main className="main">
         
@@ -74,6 +87,7 @@ function App() {
               </div>
           )}
           <Header />
+          <Chatbot />
           <Home />
           {datax.services && <Services services={datax.services.filter(service => service.id !== "")} />}
           {datax.skills && <Skills skills={datax.skills.filter(skill=>skill.id!=="")}/>}
@@ -81,7 +95,7 @@ function App() {
           {datax.cv && <Resume cv={datax.cv.filter(cvx => cvx.id !== "")} />}
           <Contact />
           <Footer />
-          <div className={`cursor ${isCursorLarge ? "large" : ""}`} style={{ left: cursorPosition.x, top: cursorPosition.y }}></div>
+          <div className={`cursor ${isCursorLarge ? "large" : ""} ${visible ? '' : 'hidden'}`} style={{ left: cursorPosition.x, top: cursorPosition.y }}></div>
           
       </main>
   )

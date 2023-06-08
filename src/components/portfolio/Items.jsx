@@ -21,17 +21,13 @@ const Items = ({projectItems}) => {
           <div className="portfolio__img-wrapper">
             <img src={img} alt="" className="portfolio__img" />
           </div>
-
           <span className="portfolio__category text-cs">{category}</span>
-
           <span className="po__title">
             <h3 className="portfolio__title">{titlex}</h3>
             {link1&&<a href={link1}><FaLink className='link__icon2'></FaLink></a>}
             {link2&&<a href={link2}><FaGithub className='link__icon2'></FaGithub></a>}
           </span>
           <p className="portfolio__description">{description}</p>
-
-          
 
           {/* <a href="" className="link knowmore">
             Know More

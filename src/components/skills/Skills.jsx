@@ -27,7 +27,6 @@ import pic20 from "../../assets/20.png";
 import pic21 from "../../assets/21.png";
 
 
-
 const images = [pic1, pic2, pic3, pic4, pic5, pic6, pic7, pic8, pic9, pic10, pic11, pic12, pic13, pic14, pic15, pic16, pic17, pic18, pic19, pic20, pic21];
 
 const Skills = ({skills}) => {
@@ -42,9 +41,10 @@ const Skills = ({skills}) => {
         </p>
 
         <div className="skills__container container grid" data-aos="zoom-in-up">
+
             {skills.map(({name,percentage,description},index)=>{
                 return(
-                    <div className="skills__item" key={index}>
+                    <div className="skills__item" key={index} >
                         <div className="skills__title">
                             <h3 className="skills__name">{name}</h3>
                             <span className="skills__number">

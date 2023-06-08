@@ -6,7 +6,7 @@
   /* colors */
   --primary-color:rgb(230,187,132);
   /* --primary-color:hsl(165,60%,40%); */
-  --title-color:hsl(0,0%,100%);
+  --title-color:#ffffff;
   --text-color:hsl(0,0%,92%);
   /* --bg-color:hsl(213,18%,16%); */
   --bg-color:hsl(168, 65%, 10%);
@@ -60,6 +60,7 @@ html{
   scroll-behavior: smooth;
   overflow: scroll;
   overflow-x: hidden;
+  /* overflow-y: hidden; */
 }
 ::-webkit-scrollbar {
   width: 0;  /* Remove scrollbar space */
@@ -91,9 +92,14 @@ html{
   animation: breathe 3s ease-in-out infinite;
 }
 
+
 .cursor.large {
   transform: scale(1.5) translate(-33%, -33%);
   transform-origin: center center!important;
+}
+
+.cursor.hidden {
+  opacity: 0;
 }
 
 @keyframes breathe {

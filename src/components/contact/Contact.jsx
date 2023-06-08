@@ -6,6 +6,7 @@ import { useState,useEffect } from 'react';
 import shapeOne from "../../assets/shape-2.png";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Contact = () => {
     useEffect(()=>{
@@ -52,7 +53,7 @@ const Contact = () => {
         });
 
         const formData = new FormData(e.target);
-        axios.post('https://portfoliobackend-production-ff53.up.railway.app/submit-form', {
+        axios.post('https://octopus-app-mdxtz.ondigitalocean.app/submit-form', {
             name: formData.get('name'),
             email: formData.get('email'),
             subject: formData.get('subject'),
@@ -63,7 +64,10 @@ const Contact = () => {
                 name:'',
                 email:'',
                 subject:'',
-                message:''})
+                message:''});
+                toast.success('Message Sent. Will Get back to you soon!',{
+                    duration: 5000
+                });
         })
         .catch(error => {
             console.error(error);
@@ -73,14 +77,15 @@ const Contact = () => {
 
 
   return (
+    <div><Toaster/>
     <section className="contact section" id="contact">
-        <h2 className="section__title text-cs" data-aos="fade-down">Contact Me</h2>
-        <p className="section__subtitle" data-aos="fade-down">
+        <h2 className="section__title text-cs">Contact Me</h2>
+        <p className="section__subtitle">
             Let's <span>Talk About Ideas</span>
         </p>
 
         <div className="contact__container container grid">
-            <div className="contact__content" data-aos="fade-right">
+            <div className="contact__content" >
                 <div className="contact__card">
                     <span className="contact__card-icon">
                         <FaRegMap />
@@ -115,7 +120,7 @@ const Contact = () => {
                 </div>
             </div>
 
-            <form className="contact__form" onSubmit={handleSubmit} data-aos="fade-left">
+            <form className="contact__form" onSubmit={handleSubmit}>
                 <div className='contact__form-group grid'>
                     <div className="contact__form-div">
                         <label className="contact__form-tag text-cs">Your Full Name <b>*</b></label>
@@ -173,6 +178,7 @@ const Contact = () => {
           <img src={shapeOne} alt="" className="shape" />
         </div>
     </section>
+    </div>
   )
 }
 
